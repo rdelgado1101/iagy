@@ -31,6 +31,9 @@
         function pork() {
             $.mobile.changePage($("#resultados"), "slide", true, true);
         }
+        function selectFlight(id) {
+            $.mobile.changePage($("#bookFlight"), "slide", true, true);
+        }
     </script>
 </head>
 <body>
@@ -171,20 +174,65 @@
             </div>
             <ul class="breadcrumb">
                 <li><a href="#home"><div class="homeicon"></div></a></li>
-                <li><a href="#" title="Inicio">Inicio</a></li>
+                <li><a href="#home" title="Inicio">Inicio</a></li>
             </ul>
             <div data-role="content">
                 <div data-role="content">
 			        <ul id="lsResults" data-role="listview" data-inset="true" data-filter="true">
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px"/><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $200.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $300.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: CUZ TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $400.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP TTP</p></a></li>
 			        </ul>
 	            </div><!-- /content -->
             </div>
         </div>
 
+        <div data-role="page" id="bookFlight">
+            <div data-role="header" class="header" data-theme="a">
+                <a href="#" class="showMenu menuBtn">Menu</a>
+                <div class="logo">
+                    &nbsp;
+                </div>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="#home"><div class="homeicon"></div></a></li>
+                <li><a href="#home" title="Inicio">Inicio</a></li>
+                <li><a href="#resultados" title="Inicio">Resultados</a></li>
+            </ul>
+            <form>
+                <div data-role="content">
+                    <div data-role="fieldcontain">
+                        <label for="basic">Nombre:</label>
+                        <input type="text" name="nm" id="Text4" value="" data-mini="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic">Apellido:</label>
+                        <input type="text" name="ap" id="Text5" value="" data-mini="true" />            
+			        </div>
+                    <div data-role="fieldcontain">    
+                        <label for="basic">Teléfono:</label>
+                        <input type="text" name="tl" id="Text6" value="" data-mini="true" />            
+			        </div>
+                    <div data-role="fieldcontain">    
+                        <label for="basic">Email:</label>
+                        <input type="text" name="em" id="Text7" value="" data-mini="true" />            
+			        </div>
+                    <div data-role="fieldcontain">    
+                        <label for="basic">T. Documento:</label>
+                        <select name="dc" id="select-choice-a">
+				            <option value="D">DNI</option>
+				            <option value="P">Pasaporte</option>
+			            </select>
+			        </div>
+                    <div data-role="fieldcontain">    
+                        <label for="basic">Nro. Documento:</label>
+                        <input type="text" name="nd" id="Text8" value="" data-mini="true" />            
+			        </div>
+                    <a onclick="bookFlight()" data-theme="b" data-role="button">Reservar</a>
+                </div>
+            </form>
+        </div>
     <!-- *********************************************************
        	 COMIENZO DE LA PAGINA DE INSTRUCCIONES
          ********************************************************* -->

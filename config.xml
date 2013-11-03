@@ -4,14 +4,14 @@
     id        = "pe.com.next.medicall"
     version   = "1.0.0">
 
-<name>Medicall</name>
+<name>iAgency</name>
 
 <description>
-Aplicativo móvil de Medicall.
+Aplicación móvil de Agencias de Viaje.
 </description>
 
-<author href="http://www.medicallperu.com" email="arturo.marruffo@medicallperu.com">
-Arturo Marruffo Vegas
+<author href="http://www.intisolutionsdev.com" email="raul@intisolutionsdev.com">
+INTI Solutions
 </author>
 
 <preference name="phonegap-version" value="2.9.0" />
