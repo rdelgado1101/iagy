@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Medicall Mobile</title>
+    <!-- JS Files -->
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="PushNotification.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <!-- <script type="text/javascript" src="js/cordova-2.9.0.js"></script> -->
+    <script src="js/custom.js"></script>
+    <!-- Hoja JS con scripts personalizados -->
+    <script src="js/medicall.js"></script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.1.0.1.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.0.1.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icons.css">
+    <link rel="stylesheet" type="text/css" href="css/nav-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</head>
+<body>
+    <!-- Menu Begin -->
+    <!--div id="menu" style="display: none">-->
+    <div id="menu">
+        <!-- Social Links -->
+        <div class="social-links">
+            <p><a class="twitter" href="#"></a></p>
+            <p><a class="rss" href="#"></a></p>
+            <p><a class="facebook" href="#"></a></p>
+            <p><a class="googleplus" href="#"></a></p>
+            <p><a class="linkedin" href="#"></a></p>
+        </div>
+        <!-- / social links -->
+        <div class="hr-full-black">
+        </div>
+        <ul>
+            <li><a href="#home" class="contentLink" data-transition="fade">Inicio <span class="icon">
+            </span></a></li>
+            <li><a href="#instructions" class="contentLink" data-transition="fade">Instrucciones<span
+                class="icon"></span></a></li>
+            <li><a href="#status" class="contentLink" data-transition="fade">Mi estado<span class="icon"></span></a></li>
+            <li><a href="#notifications" class="contentLink" data-transition="fade">&Uacute;ltimas
+                alertas<span class="icon"></span></a></li>
+            <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Registrar HC<span
+                    class="icon"></span></a></li>
+            <li><a href="#login" class="contentLink" data-transition="fade">Cerrar sesi&oacute;n<span
+                class="icon"></span></a></li>
+        </ul>
+    </div>
+    <!-- /Menu -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE LOGIN
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="login" data-theme="a">
+        <div data-role="header" class="header" data-theme="a">
+            <div class="logo">
+            </div>
+        </div>
+        <div data-role="content">
+            <div class="loginarea">
+                <div class="login-header">
+                    INICIAR SESI&Oacute;N
+                </div>
+                <div class="login-sub">
+                    <div class="csubtitle">
+                        Usuario:</div>
+                    <div class="csubinfo">
+                        <input type="text" id="txtLoginUser" maxlength="50"></div>
+                </div>
+                <div class="login-sub">
+                    <div class="csubtitle">
+                        Contraseña:</div>
+                    <div class="csubinfo">
+                        <input type="password" id="txtLoginPassword" maxlength="50"></div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div>
+                <input type="button" value="Iniciar sesi&oacute;n" onclick="app.login();" />
+            </div>
+            <div id="lblLoginMessage" class="error" style="display: none;">
+            </div>
+            <div class="text-box-area">
+                <p class="info">
+                    Si usted es un m&eacute;dico y a&uacute;n no posee una cuenta para ingresar al aplicativo,
+                    por favor, proceda a registrarse en nuestro sitio web: <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
+                        www.medicallperu.com</a>. Adicionalmente, si olvid&oacute; su contraseña, tambi&eacute;n
+                    puede recuperarla en nuestra p&aacute;gina.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACION DE LA PAGINA DE LOGIN
+         ********************************************************* -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE INICIO
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="home" data-theme="a">
+        <!-- Header Begin -->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#" title="Inicio">Inicio</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content Begin -->
+        <div data-role="content">
+            <!-- Text Area -->
+            <div class="text-box-area">
+                <p>
+                    <strong>Estimado Dr. <span id="NomUsu"></span>,</strong><br />
+                    Actualmente, su estado es [Estado], por lo tanto [Descripcion_Estado]. Si desea
+                    cambiar su estado, por favor presione <strong>aqu&iacute;</strong>.<br />
+                    Adicionalmente, su ubicaci&oacute;n ha sido autom&aacute;ticamente obtenida desde
+                    el GPS de su equipo. (Manejar evento Success o Error)<br />
+                </p>
+                <p>
+                    Por favor, no olvide revisar peri&oacute;dicamente <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
+                        www.medicallperu.com</a> para recibir las &uacute;ltimas actualizaciones del
+                    aplicativo, administrar su informaci&oacute;n, renovar su membres&iacute;a, etc.<br />
+                    Su membres&iacute;a vence el: [Fecha de vencimiento].
+                </p>
+            </div>
+            <!-- / Text Area -->
+        </div>
+        <!-- / content -->
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACION DE LA PAGINA DE INICIO 
+         ********************************************************* -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE INSTRUCCIONES
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="instructions" data-theme="a">
+        <!-- Header Begin -->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#" title="Instrucciones">Instrucciones</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content Begin -->
+        <div data-role="content">
+            <!-- Text Area -->
+            <div class="text-box-area">
+                <p>
+                    En esta secci&oacute;n encontrar&aacute; informaci&oacute;n &uacute;til para utilizar
+                    correctamente las caracter&iacute;sticas de Medicall ME.
+                </p>
+            </div>
+            <!-- / Text Area -->
+            <!-- Collapsed Area -->
+            <div data-role="collapsible-set">
+                <div data-role="collapsible">
+                    <h3>
+                        Manejo de perfil</h3>
+                    <p>
+                        <strong>Manejo de perfil</strong><br />
+                        Para editar su perfil dir&iacute;jase a <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
+                            www.medicallperu.com</a>.
+                    </p>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>
+                        Manejo de disponibilidad</h3>
+                    <p>
+                        Existen cuatro tipos de estado entre los cuales usted podr&aacute; escoger:<br />
+                    </p>
+                    <ul class="checklist">
+                        <li>Disponible para realizar visitas a domicilio.</li>
+                        <li>Disponible para ser visitado.</li>
+                        <li>Disponibilidad total</li>
+                        <li>No disponible</li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>
+                        Manejo de notificaciones</h3>
+                    <p>
+                        Las notificaciones representan solicitudes de contacto de los usuarios. Cuando un
+                        usuario quiera contactarlo a trav&eacute;s del sitio web .
+                    </p>
+                </div>
+            </div>
+            <!-- / Collapsed Area -->
+        </div>
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACION DE LA PAGINA DE INSTRUCCIONES
+         ********************************************************* -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE UBICACION
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="status" data-theme="a">
+        <!-- Header Begin -->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#" title="Mi estado">Mi estado</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content Begin -->
+        <div data-role="content">
+            <!-- Text Area -->
+            <div class="text-box-area">
+                <p>
+                    <strong>Estimado Dr. [Nombre],</strong><br />
+                    Por favor, seleccione su estado actual para que el sistema pueda ubicarlo.
+                </p>
+            </div>
+            <!-- / Text Area -->
+            <select id="cboAvailability" data-native-menu="false" onchange="app.changeStatus()">
+                <option value="0">No disponible</option>
+                <option value="1">Disponible para realizar visitas a domicilio</option>
+                <option value="2">Disponible para ser visitado</option>
+                <option value="3">Disponibilidad total</option>
+            </select>
+            <div id="divMap" class="divMap">
+                <img src="#" id="imgGooglemap" />
+            </div>
+            <div id="lblAvailabilityMessage" class="warning" style="display: none">
+                <p>
+                    Lo hemos ubicado en: <strong><span id="Location"></span></strong>.
+                    Recuerde que, debido al estado que usted ha seleccionado, su ubicaci&oacute;n est&aacute;
+                    siendo mostrada en <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
+                        www.medicallperu.com</a>.</p>
+            </div>
+            <!-- / content -->
+        </div>
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACION  DE LA PAGINA DE UBICACION
+         ********************************************************* -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE NOTIFICACIONES
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="notifications" data-theme="a">
+        <!-- Header Begin -->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#" title="Últimas notificaciones">&Uacute;ltimas notificaciones</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content Begin -->
+        <div data-role="content">
+            <!-- Text Area -->
+            <p>
+                Aquí podrá ver las notificaciones de contacto enviadas por los usuarios registrados
+                en el sitio web. Haciendo click en el botón de "Ver contacto" de cada fila, usted
+                podrá acceder a la información del usuario, llamarlo, enviarle un correo, entre
+                otras actividades.
+            </p>
+            <p>
+                <strong>* Las alertas tienen una vigencia de tres horas; al acabar dicho periodo, ser&aacute;n
+                    eliminadas del sistema.</strong>
+            </p>
+            <br />
+            <!-- / Text Area -->
+            <div id="divAlerts" class="ui-grid-a ui-responsive">
+            </div>
+        </div>
+        <!-- / content -->
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACIÓN DE LA PAGINA DE NOTIFICACIONES
+         ********************************************************* -->
+    <!-- *********************************************************
+         COMIENZO DE LA PAGINA DE CONTACTO
+        ********************************************************* -->
+    <div data-role="page" class="pages" id="contact" data-theme="a">
+        <!--header-->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;</div>
+        </div>
+        <!-- /header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#notifications" title="Notificaciones">Notificaciones</a></li>
+            <li><a href="#" title="Contacto">Detalle</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content -->
+        <div data-role="content">
+            <!-- Container -->
+            <div class="contactarea">
+                <div class="contact-header">
+                    Informaci&oacute;n de contacto</div>
+                <div class="contact-sub">
+                    <div class="csubtitle">
+                        Nombre completo:</div>
+                    <div class="csubinfo">
+                        <span id="Name"></span>
+                    </div>
+                </div>
+                <div class="contact-sub">
+                    <div class="csubtitle">
+                        Apellido paterno:</div>
+                    <div class="csubinfo">
+                        <span id="LastName"></span>
+                    </div>
+                </div>
+                <div class="contact-sub">
+                    <div class="csubtitle">
+                        Apellido materno:</div>
+                    <div class="csubinfo">
+                        <span id="SecondLastName"></span>
+                    </div>
+                </div>
+                <div class="contact-sub">
+                    <div class="csubtitle">
+                        Direcci&oacute;n</div>
+                    <div class="csubinfo">
+                        <span id="Address"></span>
+                    </div>
+                </div>
+                <div class="contact-sub">
+                    <div class="csubtitle">
+                        Comentarios</div>
+                    <div class="csubinfo">
+                        <span id="Comments"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- / Contact Area -->
+        </div>
+        <!-- /content -->
+        <div data-role="footer" class="nav-glyphish" data-position="fixed" data-theme="a">
+            <div data-role="navbar" class="nav-glyphish" data-grid="a">
+                <ul>
+                    <li><a href="" id="btnTelephone" class="iconsub-white-Envelope" data-icon="custom">E-mail</a></li>
+                    <li><a href="" id="btnMail" class="iconsub-white-Phone" data-icon="custom">Llamar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- *********************************************************
+        FINALIZACIÓN  DE LA PAGINA DE CONTACTO
+        ********************************************************* -->
+    <!-- *********************************************************
+       	 COMIENZO DE LA PAGINA DE PHOTOUPLOAD
+         ********************************************************* -->
+    <div data-role="page" class="pages" id="medicalhistory" data-theme="a">
+        <!-- Header Begin -->
+        <div data-role="header" class="header" data-theme="a">
+            <a href="#" class="showMenu menuBtn">Menu</a>
+            <div class="logo">
+                &nbsp;
+            </div>
+        </div>
+        <!-- / header -->
+        <!-- breadcrumb -->
+        <ul class="breadcrumb">
+            <li><a href="#home">
+                <div class="homeicon">
+                </div>
+            </a></li>
+            <li><a href="#notifications" title="Notificaciones">Notificaciones</a></li>
+            <li><a href="#contact" title="Contacto">Detalle</a></li>
+            <li><a href="#" title="Registrar HC">Registrar HC</a></li>
+        </ul>
+        <!-- / breadcrumb-->
+        <!-- Content Begin -->
+        <div data-role="content">
+            <!-- Text Area -->
+            <p>
+                Aquí podrá ver las notificaciones de contacto enviadas por los usuarios registrados
+                en el sitio web. Haciendo click en el botón de "Ver contacto" de cada fila, usted
+                podrá acceder a la información del usuario, llamarlo, enviarle un correo, entre
+                otras actividades.
+            </p>
+            <p>
+                <strong>* Las alertas tienen una vigencia de tres horas; al acabar dicho periodo, ser&aacute;n
+                    eliminadas del sistema.</strong>
+            </p>
+            <br />
+            <!-- / Text Area -->
+            <button onclick="app.capturePhoto();">Tomar fotograf&iacute;a</button> <br>
+            <center><img style="display:none;width:80px;height:80px;" id="smallImage" src="" /></center>
+        </div>
+        <!-- / content -->
+    </div>
+    <!-- *********************************************************
+       	 FINALIZACIÓN DE LA PAGINA DE PHOTOUPLOAD
+         ********************************************************* -->
+</body>
+</html>
