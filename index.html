@@ -26,6 +26,12 @@
     <script type="text/javascript">
         app.initialize();
     </script>
+
+    <script>
+        function pork() {
+            $.mobile.changePage($("#resultados"), "slide", true, true);
+        }
+    </script>
 </head>
 <body>
     <!-- Menu Begin -->
@@ -33,9 +39,9 @@
     <div id="menu">
         <!-- Social Links -->
         <div class="social-links">
-            <p><a class="twitter" href="#"></a></p>
+            <p><a class="twitter" href="http://twitter.com/INTISAC"></a></p>
             <p><a class="rss" href="#"></a></p>
-            <p><a class="facebook" href="#"></a></p>
+            <p><a class="facebook" href="https://www.facebook.com/IntiSolutionsSac"></a></p>
             <p><a class="googleplus" href="#"></a></p>
             <p><a class="linkedin" href="#"></a></p>
         </div>
@@ -43,17 +49,13 @@
         <div class="hr-full-black">
         </div>
         <ul>
-            <li><a href="#home" class="contentLink" data-transition="fade">Inicio <span class="icon">
-            </span></a></li>
-            <li><a href="#instructions" class="contentLink" data-transition="fade">Instrucciones<span
-                class="icon"></span></a></li>
-            <li><a href="#status" class="contentLink" data-transition="fade">Mi estado<span class="icon"></span></a></li>
-            <li><a href="#notifications" class="contentLink" data-transition="fade">&Uacute;ltimas
-                alertas<span class="icon"></span></a></li>
-            <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Registrar HC<span
-                    class="icon"></span></a></li>
-            <li><a href="#login" class="contentLink" data-transition="fade">Cerrar sesi&oacute;n<span
-                class="icon"></span></a></li>
+            <li><a href="#home" class="contentLink" data-transition="fade">Inicio <span class="icon"></span></a></li>
+            <li><a href="#status" class="contentLink" data-transition="fade">Mis Reservas<span class="icon"></span></a></li>
+            <li><a href="#notifications" class="contentLink" data-transition="fade">&Uacute;ltimas alertas<span class="icon"></span></a></li>
+            <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Agentes<span class="icon"></span></a></li>
+            <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Promociones<span class="icon"></span></a></li>
+			<li><a href="#medicalhistory" class="contentLink" data-transition="fade">Oficinas<span class="icon"></span></a></li>
+            <li><a href="#login" class="contentLink" data-transition="fade">Cerrar sesi&oacute;n<span class="icon"></span></a></li>
         </ul>
     </div>
     <!-- /Menu -->
@@ -92,7 +94,7 @@
             </div>
             <div class="text-box-area">
                 <p class="info">
-                    Si usted es un m&eacute;dico y a&uacute;n no posee una cuenta para ingresar al aplicativo,
+                    Si no posee una cuenta para ingresar al aplicativo,
                     por favor, proceda a registrarse en nuestro sitio web: <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
                         www.medicallperu.com</a>. Adicionalmente, si olvid&oacute; su contraseña, tambi&eacute;n
                     puede recuperarla en nuestra p&aacute;gina.
@@ -127,20 +129,26 @@
         <!-- Content Begin -->
         <div data-role="content">
             <!-- Text Area -->
-            <div class="text-box-area">
-                <p>
-                    <strong>Estimado Dr. <span id="NomUsu"></span>,</strong><br />
-                    Actualmente, su estado es [Estado], por lo tanto [Descripcion_Estado]. Si desea
-                    cambiar su estado, por favor presione <strong>aqu&iacute;</strong>.<br />
-                    Adicionalmente, su ubicaci&oacute;n ha sido autom&aacute;ticamente obtenida desde
-                    el GPS de su equipo. (Manejar evento Success o Error)<br />
-                </p>
-                <p>
-                    Por favor, no olvide revisar peri&oacute;dicamente <a href="#" onclick="window.open('http://www.medicallperu.com', '_blank', 'location=yes');">
-                        www.medicallperu.com</a> para recibir las &uacute;ltimas actualizaciones del
-                    aplicativo, administrar su informaci&oacute;n, renovar su membres&iacute;a, etc.<br />
-                    Su membres&iacute;a vence el: [Fecha de vencimiento].
-                </p>
+            <div data-role="content">
+                <div>
+                    <div data-role="fieldcontain">
+                        <label for="basic">Origen:</label>
+                        <input type="text" name="or"  id="basic" value="" data-mini="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic">Fecha Salida:</label>
+                        <input type="date" name="fs" id="Text1" value="" data-mini="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic">Destino:</label>
+                        <input type="text" name="ds" id="Text2" value="" data-mini="true" />
+			        </div>
+                    <div data-role="fieldcontain">
+                        <label for="basic">Fecha Retorno:</label>
+                        <input type="date" name="fr" id="Text3" value="" data-mini="true" />
+			        </div>
+                    <button onclick="pork()" type="submit" data-theme="b" name="submit" value="Buscar">Buscar</button>
+                </div>
             </div>
             <!-- / Text Area -->
         </div>
@@ -149,6 +157,34 @@
     <!-- *********************************************************
        	 FINALIZACION DE LA PAGINA DE INICIO 
          ********************************************************* -->
+
+    <!-- *********************************************************
+          COMIENZO DE LA PAGINA DE RESULTADO DE VUELOS --
+         ********************************************************* -->
+
+        <div data-role="page" class="pages" id="resultados" data-theme="a">
+            <div data-role="header" class="header" data-theme="a">
+                <a href="#" class="showMenu menuBtn">Menu</a>
+                <div class="logo">
+                    &nbsp;
+                </div>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="#home"><div class="homeicon"></div></a></li>
+                <li><a href="#" title="Inicio">Inicio</a></li>
+            </ul>
+            <div data-role="content">
+                <div data-role="content">
+			        <ul id="lsResults" data-role="listview" data-inset="true" data-filter="true">
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" /><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
+			        </ul>
+	            </div><!-- /content -->
+            </div>
+        </div>
+
     <!-- *********************************************************
        	 COMIENZO DE LA PAGINA DE INSTRUCCIONES
          ********************************************************* -->
@@ -329,10 +365,7 @@
         <!-- /header -->
         <!-- breadcrumb -->
         <ul class="breadcrumb">
-            <li><a href="#home">
-                <div class="homeicon">
-                </div>
-            </a></li>
+            <li><a href="#home"><div class="homeicon"></div></a></li>
             <li><a href="#notifications" title="Notificaciones">Notificaciones</a></li>
             <li><a href="#" title="Contacto">Detalle</a></li>
         </ul>
