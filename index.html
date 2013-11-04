@@ -34,6 +34,9 @@
         function selectFlight(id) {
             $.mobile.changePage($("#bookFlight"), "slide", true, true);
         }
+        function getmenu() {
+            $.mobile.changePage($("#home"), "fade", true, true);
+        }
     </script>
 </head>
 <body>
@@ -91,7 +94,7 @@
             <div class="clear">
             </div>
             <div>
-                <input type="button" value="Iniciar sesi&oacute;n" onclick="app.login();" />
+                <input type="button" value="Iniciar sesi&oacute;n" onclick="getmenu()" />
             </div>
             <div id="lblLoginMessage" class="error" style="display: none;">
             </div>
@@ -212,11 +215,11 @@
 			        </div>
                     <div data-role="fieldcontain">    
                         <label for="basic">Teléfono:</label>
-                        <input type="text" name="tl" id="Text6" value="" data-mini="true" />            
+                        <input type="tel" name="tl" id="Text6" value="" data-mini="true" />            
 			        </div>
                     <div data-role="fieldcontain">    
                         <label for="basic">Email:</label>
-                        <input type="text" name="em" id="Text7" value="" data-mini="true" />            
+                        <input type="email" name="em" id="Text7" value="" data-mini="true" />            
 			        </div>
                     <div data-role="fieldcontain">    
                         <label for="basic">T. Documento:</label>
