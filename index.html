@@ -134,6 +134,9 @@
         <!-- Content Begin -->
         <div data-role="content">
             <!-- Text Area -->
+            <div class="text-box-area">
+                <p>Motor de búsqueda.</p>
+            </div>
             <div data-role="content">
                 <div>
                     <div data-role="fieldcontain">
@@ -179,13 +182,22 @@
                 <li><a href="#home" title="Inicio">Inicio</a></li>
             </ul>
             <div data-role="content">
+                <div class="text-box-area">
+                    <p>Resultados de la búsqueda. Seleccione cualquier ítem del detalle que desee reservar.</p>
+                </div>
                 <div data-role="content">
-			        <ul id="lsResults" data-role="listview" data-inset="true" data-filter="true">
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px"/><h3>Precio : $100.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 15MAY<br /> Ruta: LIM TRU</p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $200.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $300.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: CUZ TRU</p></a></li>
-                        <li><a onclick="selectFlight(0)"><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Precio : $400.00</h3><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP TTP</p></a></li>
-			        </ul>
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>Lan Perú - LIM TRU - $200.00</h3>                         
+                            <a onclick="selectFlight(0)">
+                                <ul id="lsResults" data-role="listview" data-inset="true" data-filter="true">
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Nro. Vuelo : 202</h3><p>Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Nro. Vuelo : 202</h3><p>Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><h3>Nro. Vuelo : 202</h3><p>Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
+			                    </ul>
+                            </a>
+                        </div>
+                    </div>			        
 	            </div><!-- /content -->
             </div>
         </div>
@@ -245,6 +257,8 @@
         <!-- breadcrumb -->
         <ul class="breadcrumb">
             <li><a href="#home"><div class="homeicon"></div></a></li>
+            <li><a href="#home" title="Inicio">Inicio</a></li>
+            <li><a href="#resultados" title="Inicio">Mis Reservas</a></li>
         </ul>
         <div data-role="content">
             <div id="pork" class="ui-grid-a ui-responsive">
@@ -313,8 +327,7 @@
                     </ul>
                 </div>
                 <div data-role="collapsible" data-collapsed="true">
-                    <h3>
-                        Manejo de notificaciones</h3>
+                    <h3>Manejo de notificaciones</h3>
                     <p>
                         Las notificaciones representan solicitudes de contacto de los usuarios. Cuando un
                         usuario quiera contactarlo a trav&eacute;s del sitio web .
