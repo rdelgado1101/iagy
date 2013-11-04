@@ -48,18 +48,17 @@
             <p><a class="twitter" href="http://twitter.com/INTISAC"></a></p>
             <p><a class="rss" href="#"></a></p>
             <p><a class="facebook" href="https://www.facebook.com/IntiSolutionsSac"></a></p>
-            <p><a class="googleplus" href="#"></a></p>
+            <p><a class="googleplus" href="https://plus.google.com/u/1/115584825717590590904/"></a></p>
             <p><a class="linkedin" href="#"></a></p>
         </div>
         <!-- / social links -->
-        <div class="hr-full-black">
-        </div>
+        <div class="hr-full-black"></div>
         <ul>
             <li><a href="#home" class="contentLink" data-transition="fade">Inicio <span class="icon"></span></a></li>
-            <li><a href="#status" class="contentLink" data-transition="fade">Mis Reservas<span class="icon"></span></a></li>
+            <li><a href="#misreservas" class="contentLink" data-transition="fade">Mis Reservas<span class="icon"></span></a></li>
             <li><a href="#notifications" class="contentLink" data-transition="fade">&Uacute;ltimas alertas<span class="icon"></span></a></li>
             <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Agentes<span class="icon"></span></a></li>
-            <li><a href="#medicalhistory" class="contentLink" data-transition="fade">Promociones<span class="icon"></span></a></li>
+            <li><a href="#" class="contentLink" data-transition="fade" onclick="window.open('http://d.costamar.com/Promociones.aspx', '_blank');">Promociones<span class="icon"></span></a></li>
 			<li><a href="#medicalhistory" class="contentLink" data-transition="fade">Oficinas<span class="icon"></span></a></li>
             <li><a href="#login" class="contentLink" data-transition="fade">Cerrar sesi&oacute;n<span class="icon"></span></a></li>
         </ul>
@@ -139,19 +138,19 @@
                 <div>
                     <div data-role="fieldcontain">
                         <label for="basic">Origen:</label>
-                        <input type="text" name="or"  id="basic" value="" data-mini="true" />
+                        <input type="text" name="or"  id="basic" placeholder="Origen" data-mini="true" />
                     </div>
                     <div data-role="fieldcontain">
                         <label for="basic">Fecha Salida:</label>
-                        <input type="date" name="fs" id="Text1" value="" data-mini="true" />
+                        <input type="date" name="fs" id="Text1" placeholder="Fecha Salida" data-mini="true" />
                     </div>
                     <div data-role="fieldcontain">
                         <label for="basic">Destino:</label>
-                        <input type="text" name="ds" id="Text2" value="" data-mini="true" />
+                        <input type="text" name="ds" id="Text2" placeholder="Destino" data-mini="true" />
 			        </div>
                     <div data-role="fieldcontain">
                         <label for="basic">Fecha Retorno:</label>
-                        <input type="date" name="fr" id="Text3" value="" data-mini="true" />
+                        <input type="date" name="fr" id="Text3" placeholder="Fecha Retorno" data-mini="true" />
 			        </div>
                     <button onclick="pork()" type="submit" data-theme="b" name="submit" value="Buscar">Buscar</button>
                 </div>
@@ -167,7 +166,7 @@
     <!-- *********************************************************
           COMIENZO DE LA PAGINA DE RESULTADO DE VUELOS --
          ********************************************************* -->
-
+         
         <div data-role="page" class="pages" id="resultados" data-theme="a">
             <div data-role="header" class="header" data-theme="a">
                 <a href="#" class="showMenu menuBtn">Menu</a>
@@ -236,6 +235,46 @@
                 </div>
             </form>
         </div>
+
+
+    <div data-role="page" class="pages" id="misreservas" data-theme="a">
+        <div data-role="content">
+            <table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+                <thead>
+                    <tr class="ui-bar-d">
+                        <th data-priority="2">Nro.</th>
+                        <th>Reserva</th>
+                        <th>Ruta</th>
+                        <th data-priority="3">Pasajero</th>
+                        <th data-priority="5">Tarifa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td><a href="#" data-rel="external">PNRTST1</a></td>
+                        <td>Lima - Arequipa</td>
+                        <td>DELGADO/RAUL</td>
+                        <td>$ 150.90</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td><a href="#" data-rel="external">PNRTST2</a></td>
+                        <td>Lima - Miami</td>
+                        <td>CHANG/MARISOL</td>
+                        <td>$ 420.00</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td><a href="#" data-rel="external">PNRTST3</a></td>
+                        <td>Tarapoto - Milán</td>
+                        <td>FLORES/ALFREDO</td>
+                        <td>$ 950.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- *********************************************************
        	 COMIENZO DE LA PAGINA DE INSTRUCCIONES
          ********************************************************* -->
