@@ -295,4 +295,4 @@ UI ELEMENTS
 .ui-btn-corner-all{-webkit-border-radius:0 !important; border-radius:0 !important}
 .modalWindow {width: 100%; height: 100%; position: absolute; z-index: 1500; background: white; opacity: 0.7;}
 .ui-loader {z-index: 1501;}
-.divMap {border-top-width: 4px; border-bottom-width: 4px; border-top-style: double; border-bottom-style: double; border-top-color: #091d29; border-bottom-color: #091d29; padding: 8px 0px; text-align: center; display:none;}
+.divMap {border-top-width: 4px; border-bottom-width: 4px; border-top-style: double; border-bottom-style: double; border-top-color: #091d29; border-bottom-color: #091d29; padding: 8px 0px; text-align: center;}
