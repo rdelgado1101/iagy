@@ -18,7 +18,7 @@ INTI Solutions
 <preference name="load-url-timeout" value="15000" />
 
 <access origin="*" />
-
+<icon src="icon.png" />
 <!-- Plugins -->
 <!-- <gap:plugin name="com.adobe.plugins.pushplugin" /> -->
 
