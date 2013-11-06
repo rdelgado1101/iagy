@@ -57,7 +57,7 @@
         <ul>
             <li><a href="#home" class="contentLink" data-transition="fade">Inicio <span class="icon"></span></a></li>
             <li><a href="#misreservas" class="contentLink" data-transition="fade">Mis Reservas<span class="icon"></span></a></li>
-            <li><a href="#instructions" class="contentLink" data-transition="fade">Instrucciones<span class="icon"></span></a></li>
+            <!--<li><a href="#instructions" class="contentLink" data-transition="fade">Instrucciones<span class="icon"></span></a></li>-->
             <li><a href="#" class="contentLink" data-transition="fade" onclick="window.open('http://intisolutionsdev.com/dirbeta2/Promociones.aspx', '_blank');">Promociones<span class="icon"></span></a></li>
 			<li><a href="#oficinas" class="contentLink" data-transition="fade">Oficinas<span class="icon"></span></a></li>            
             <li><a href="#login" class="contentLink" data-transition="fade">Cerrar sesi&oacute;n<span class="icon"></span></a></li>
@@ -186,50 +186,42 @@
                     <p>Resultados de la búsqueda. Seleccione cualquier ítem del detalle que desee reservar.</p>
                 </div>
                 <div data-role="content">
-                    <ul id="Ul3" data-role="listview" data-inset="true" data-filter="true">
-                        <li>
-                        <div data-role="collapsible-set">
-                            <div data-role="collapsible">
-                                <h3>Lan Perú - LIM TRU - $200.00</h3>
-                                <a onclick="selectFlight(0)">
-                                    <ul id="lsResults" data-role="listview" data-inset="true" data-filter="false">
-                                        <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>>
-                                        <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
-                                        <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
-			                        </ul>
-                                </a>
-                            </div>
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>Lan Perú - LIM TRU - $200.00</h3>
+                            <a onclick="selectFlight(0)">
+                                <ul id="lsResults" data-role="listview" data-inset="true" data-filter="false">
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>>
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
+                                    <li><img src="images/aerolineas/LP.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
+			                    </ul>
+                            </a>
                         </div>
-                        </li>
-                        <li>
-                        <div data-role="collapsible-set">
-                            <div data-role="collapsible">
-                                <h3>Lan Perú - LIM TRU - $600.00</h3>
-                                <a onclick="selectFlight(0)">
-                                    <ul id="Ul1" data-role="listview" data-inset="true" data-filter="false">
-                                        <li><img src="images/aerolineas/AC.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>
-                                        <li><img src="images/aerolineas/AR.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
-                                        <li><img src="images/aerolineas/LX.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
-			                        </ul>
-                                </a>
-                            </div>
+                    </div>
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>Lan Perú - LIM TRU - $600.00</h3>
+                            <a onclick="selectFlight(0)">
+                                <ul id="Ul1" data-role="listview" data-inset="true" data-filter="false">
+                                    <li><img src="images/aerolineas/AC.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>
+                                    <li><img src="images/aerolineas/AR.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
+                                    <li><img src="images/aerolineas/LX.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
+			                    </ul>
+                            </a>
                         </div>
-                        </li>
-                        <li>
-                        <div data-role="collapsible-set">
-                            <div data-role="collapsible">
-                                <h3>Lan Perú - LIM TRU - $400.00</h3>
-                                <a onclick="selectFlight(0)">
-                                    <ul id="Ul2" data-role="listview" data-inset="true" data-filter="false">
-                                        <li><img src="images/aerolineas/S3.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>
-                                        <li><img src="images/aerolineas/TA.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
-                                        <li><img src="images/aerolineas/AA.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
-			                        </ul>
-                                </a>
-                            </div>
+                    </div>
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>Lan Perú - LIM TRU - $400.00</h3>
+                            <a onclick="selectFlight(0)">
+                                <ul id="Ul2" data-role="listview" data-inset="true" data-filter="false">
+                                    <li><img src="images/aerolineas/S3.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 16MAY<br /> Ruta: TRU LIM </p></li>
+                                    <li><img src="images/aerolineas/TA.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 25MAY<br /> Ruta: LIM AQP</p></li>
+                                    <li><img src="images/aerolineas/AA.jpg" style="padding-top:25px" /><p>Nro. Vuelo : 202<br />Fecha Salida : 23MAY<br /> Ruta: AQP LIM</p></li>
+			                    </ul>
+                            </a>
                         </div>
-                        </li>
-                    </ul>
+                    </div>
 	            </div><!-- /content -->
             </div>
         </div>
